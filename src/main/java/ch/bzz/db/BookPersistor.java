@@ -12,4 +12,7 @@ public class BookPersistor {
     public List<Book> getAll(int limit) {
         return bookRepository.getAll(limit);
     }
+    public void close() {
+        bookRepository.close();
+    }
 }

@@ -5,6 +5,7 @@ import ch.bzz.io.BookRepository;
 import ch.bzz.io.UserRepository;
 import ch.bzz.model.Book;
 import ch.bzz.model.User;
+import ch.bzz.security.PasswordHandler;
 
 import java.io.IOException;
 import java.nio.file.Files;

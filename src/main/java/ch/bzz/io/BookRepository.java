@@ -46,4 +46,7 @@ public class BookRepository {
             }
         }
     }
+    public void close() {
+        emf.close();
+    }
 }

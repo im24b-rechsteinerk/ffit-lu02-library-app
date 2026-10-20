@@ -33,4 +33,19 @@ public class UserRepository {
             }
         }
     }
+    public User getByEmail(String email) {
+        try (EntityManager em = emf.createEntityManager()) {
+            return em.createQuery("SELECT u FROM User u WHERE u.email = :email", User.class)
+                    .setParameter("email", email)
+                    .getResultStream()
+                    .findFirst()
+                    .orElse(null);
+        } catch (RuntimeException e) {
+            log.error("Error during getting user by email from the database:", e);
+            throw e;
+        }
+    }
+    public void close() {
+        emf.close();
+    }
 }
